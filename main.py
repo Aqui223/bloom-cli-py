@@ -63,7 +63,7 @@ import asyncio
 from websockets.asyncio.client import connect
 
 async def listen():
-    async with connect(websockets_url, additional_headers={"Authorization": "Bearer "+TOKEN}) as websocket:
+    async with connect(websockets_url+"?token="+TOKEN) as websocket:
         message = await websocket.recv()
         print(message)
 
